@@ -1,0 +1,61 @@
+import java.util.*;
+
+class Creditcard {
+    String cardHolderName;
+    String cardNumber;
+    double dueAmount;
+    String dueDate;
+
+    
+    CreditCard(String name, String number, double amount, String date) {
+        cardHolderName = name;
+        cardNumber = number;
+        dueAmount = amount;
+        dueDate = date;
+    }
+
+
+    void displayDetails() {
+        System.out.println("Card Holder Name: " + cardHolderName);
+        System.out.println("Card Number: " + cardNumber);
+        System.out.println("Due Amount: ₹" + dueAmount);
+        System.out.println("Due Date: " + dueDate);
+    }
+
+
+    void sendReminder() {
+        System.out.println("Reminder: Dear " + cardHolderName +
+                ", your payment of ₹" + dueAmount +
+                " is due on " + dueDate + ". Please pay on time!");
+    }
+}
+
+public class CreditCardReminderSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Card Holder Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Card Number: ");
+        String number = sc.nextLine();
+
+        System.out.print("Enter Due Amount: ");
+        double amount = sc.nextDouble();
+        sc.nextLine(); /
+
+        System.out.print("Enter Due Date (DD-MM-YYYY): ");
+        String date = sc.nextLine();
+
+
+        CreditCard card = new CreditCard(name, number, amount, date);
+
+        System.out.println("\n--- Credit Card Details ---");
+        card.displayDetails();
+
+        System.out.println("\n--- Payment Reminder ---");
+        card.sendReminder();
+
+        sc.close();
+    }
+}
